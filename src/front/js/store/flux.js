@@ -1,54 +1,74 @@
 const getState = ({ getStore, getActions, setStore }) => {
-	return {
-		store: {
-			message: null,
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
-		},
-		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
+    return {
+        store: {
+            tasks: [], // Aseguramos que las tareas se inicialicen correctamente
+        },
+        actions: {
+            // Obtener todas las tareas para una lista
+            getTasksForList: async (token, listId) => {
+                try {
+                    const resp = await fetch(`${process.env.BACKEND_URL}/api/lists/${listId}/tasks`, {
+                        method: "GET",
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    });
+                    if (resp.ok) {
+                        const tasks = await resp.json();
+                        setStore({ tasks });
+                    } else {
+                        console.log("Error obteniendo las tareas");
+                    }
+                } catch (error) {
+                    console.log("Error obteniendo las tareas:", error);
+                }
+            },
 
-			getMessage: async () => {
-				try{
-					// fetching data from the backend
-					const resp = await fetch(process.env.BACKEND_URL + "/api/hello")
-					const data = await resp.json()
-					setStore({ message: data.message })
-					// don't forget to return something, that is how the async resolves
-					return data;
-				}catch(error){
-					console.log("Error loading message from backend", error)
-				}
-			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
+            // Agregar una nueva tarea
+            createTask: async (token, listId, taskData) => {
+                try {
+                    const resp = await fetch(`${process.env.BACKEND_URL}/api/lists/${listId}/tasks`, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            Authorization: `Bearer ${token}`,
+                        },
+                        body: JSON.stringify(taskData),
+                    });
+                    if (resp.ok) {
+                        const newTask = await resp.json();
+                        const store = getStore();
+                        setStore({ tasks: [...store.tasks, newTask] });
+                    } else {
+                        console.log("Error creando la tarea");
+                    }
+                } catch (error) {
+                    console.log("Error creando la tarea:", error);
+                }
+            },
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
-			}
-		}
-	};
+            // Eliminar una tarea
+            deleteTask: async (token, taskId) => {
+                try {
+                    const resp = await fetch(`${process.env.BACKEND_URL}/api/tasks/${taskId}`, {
+                        method: "DELETE",
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    });
+                    if (resp.ok) {
+                        const store = getStore();
+                        const tasks = store.tasks.filter((task) => task.id !== taskId);
+                        setStore({ tasks });
+                    } else {
+                        console.log("Error eliminando la tarea");
+                    }
+                } catch (error) {
+                    console.log("Error eliminando la tarea:", error);
+                }
+            },
+        },
+    };
 };
 
 export default getState;

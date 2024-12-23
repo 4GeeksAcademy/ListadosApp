@@ -1,0 +1,55 @@
+.pastel-navbar {
+    background-color: #dbeafe; /* un azul pastel */
+}
+
+.pastel-brand {
+    font-weight: 700;
+    color: #1e3a8a;
+    font-size: 1.5rem;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler-icon {
+    filter: invert(0.5);
+}
+
+.pastel-link {
+    color: #1e3a8a;
+}
+
+.pastel-button {
+    background-color: #34d399; /* verde menta pastel */
+    border: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.pastel-button:hover {
+    background-color: #10b981;
+}
+
+.pastel-button-outline {
+    background-color: transparent;
+    border: 2px solid #34d399;
+    color: #34d399;
+    font-weight: bold;
+}
+
+.pastel-button-outline:hover {
+    background-color: #34d399;
+    color: #fff;
+}
+
+.user-avatar {
+    width:40px; 
+    height:40px; 
+    border-radius:50%;
+    object-fit: cover;
+}
+
+.pastel-text {
+    color: #1e3a8a;
+}

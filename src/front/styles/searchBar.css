@@ -1,0 +1,64 @@
+/* searchBar.css */
+.search-bar {
+    background-color: #ffffff;
+    color: #0064a6;
+    padding: 1rem;
+    border-radius: 10px;
+    max-width: 1200px;
+    margin: -2rem auto 2rem auto; /* Para superponer ligeramente en el banner */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .search-bar-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .tab {
+    background-color: #0064a6;
+    color: #ffffff;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .tab.active {
+    background-color: #d52b1e; /* Rojo bandera Islandia */
+  }
+  
+  .search-bar-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .form-input,
+  .form-select {
+    padding: 0.6rem 1rem;
+    border: 1px solid #a5b4fc;
+    border-radius: 5px;
+    font-size: 0.95rem;
+  }
+  
+  .search-button {
+    background-color: #d52b1e;
+    color: #ffffff;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .search-button:hover {
+    background-color: #0064a6;
+  }
+  

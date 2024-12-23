@@ -1,0 +1,60 @@
+/* categorySection.css */
+.category-section {
+    margin: 2rem 0;
+  }
+  
+  .category-title {
+    font-size: 1.8rem;
+    color: #0064a6; /* Azul Islandia */
+    margin-bottom: 1rem;
+  }
+  
+  .category-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+  
+  .category-card {
+    width: 280px;
+    background-color: #fff;
+    color: #0064a6;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    text-align: left;
+    transition: transform 0.3s ease;
+  }
+  
+  .category-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .category-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 2px solid #f0f0f0;
+  }
+  
+  .category-info {
+    padding: 1rem;
+  }
+  
+  .category-info h3 {
+    margin-bottom: 0.5rem;
+    color: #d52b1e; /* Rojo Islandia */
+  }
+  
+  .category-info p {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    color: #475569;
+  }
+  
+  .category-price {
+    font-weight: bold;
+    color: #0064a6;
+  }
+  

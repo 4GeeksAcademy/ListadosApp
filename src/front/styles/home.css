@@ -1,7 +1,136 @@
-/*
-    home.css: This website contains selectors only used in home.css
+/* Global settings */
+body {
+    background-color: rgba(0, 38, 77, 0.8); /* Fondo azul translúcido */
+    font-family: "Comic Neue", sans-serif;
+    color: #ffffff; /* Texto blanco */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el contenido ocupe al menos toda la altura */
+}
 
-    All pages share the styles on index.css but you should create 
-    one more css for each page that will contain the selected used 
-    on that page only (the ones not reused in other pages).
-*/
+/* Home container */
+.home {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header (banner) */
+.home-banner {
+    background: url('https://placehold.co/1920x600') no-repeat center center/cover;
+    text-align: center;
+    padding: 5rem 2rem;
+    color: #ffffff;
+    border-bottom: 4px solid #d72828; /* Línea roja bandera */
+}
+
+.banner-content h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.banner-content p {
+    font-size: 1.5rem;
+}
+
+/* Main content */
+.main {
+    width: 100%;
+    max-width: 1200px;
+    margin: 3rem auto;
+    flex: 1; /* Empuja el contenido hacia abajo */
+}
+
+/* Footer */
+.footer {
+    background-color: #00264d; /* Azul sólido */
+    color: #ffffff;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: auto; /* Empuja el footer hacia la parte inferior */
+}
+
+.footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #d72828; /* Rojo bandera */
+}
+
+/* Cards (categories) */
+.category-section {
+    margin-bottom: 4rem;
+}
+
+.category-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #ffffff;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 0 1rem;
+}
+
+.card {
+    background-color: #ffffff;
+    color: #00264d;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #d72828;
+    margin-bottom: 1rem;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #475569;
+    margin-bottom: 1.5rem;
+}
+
+.card-button {
+    background-color: #0061a8;
+    color: #ffffff;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.card-button:hover {
+    background-color: #004080;
+}
